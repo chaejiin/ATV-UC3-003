@@ -1,38 +1,41 @@
 <?xml version="1.0"?>
-<flowgorithm fileversion="2.11">
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="erroVendedor  + nome"/>
+        <attribute name="authors" value=""/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-05-14 01:42:39 "/>
+        <attribute name="created" value="bGVhbmRyby5jY2Fzc2FubztTQU4wNzE3NDcwVzExLTE7MjAyNS0wNS0xNDsiMDE6MzU6NDMgIjszNjg3"/>
+        <attribute name="edited" value="bGVhbmRyby5jY2Fzc2FubztTQU4wNzE3NDcwVzExLTE7MjAyNS0wNS0xNDsiMDE6NDI6MzkgIjsxOzM3OTg="/>
+    </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="nome" type="String" array="False"/>
-            <declare name="salario" type="Real" array="False"/>
-            <declare name="vendas" type="Real" array="False"/>
-            <declare name="percentualComissao" type="Real" array="False"/>
-            <declare name="comissao" type="Real" array="False"/>
-            <declare name="pagamentoTotal" type="Real" array="False"/>
-            <output expression="&quot;===== CÁLCULO DE PAGAMENTO =====&quot;" newline="True"/>
-            <input variable="nome" prompt="Digite o nome do vendedor:"/>
-            <input variable="salario" prompt="Digite o valor do salário:"/>
-            <input variable="vendas" prompt="Digite o valor das vendas:"/>
+            <declare name="nome" type="String" array="False" size=""/>
+            <declare name="salario" type="Real" array="False" size=""/>
+            <declare name="vendas" type="Real" array="False" size=""/>
+            <declare name="percentualComissao" type="Real" array="False" size=""/>
+            <declare name="comissao" type="Real" array="False" size=""/>
+            <declare name="pagamentoTotal" type="Real" array="False" size=""/>
+            <output expression="&quot;===== C&#193;LCULO DE PAGAMENTO =====&quot;" newline="True"/>
+            <input variable="nome"/>
+            <input variable="salario"/>
+            <input variable="vendas"/>
             <if expression="vendas &gt; 3000">
                 <then>
                     <assign variable="percentualComissao" expression="15"/>
                 </then>
-                <elseif expression="vendas &gt;= 1500">
-                    <then>
-                        <assign variable="percentualComissao" expression="10"/>
-                    </then>
-                </elseif>
                 <else>
                     <assign variable="percentualComissao" expression="5"/>
                 </else>
             </if>
             <assign variable="comissao" expression="vendas * (percentualComissao / 100)"/>
             <assign variable="pagamentoTotal" expression="salario + comissao"/>
-            <output expression="&quot;Vendedor: &quot; + nome" newline="True"/>
-            <output expression="&quot;Valor das Vendas: R$ &quot; + vendas" newline="True"/>
-            <output expression="&quot;Valor da Comissão: R$ &quot; + comissao" newline="True"/>
-            <output expression="&quot;Valor do Salário: R$ &quot; + salario" newline="True"/>
-            <output expression="&quot;Pagamento: R$ &quot; + pagamentoTotal" newline="True"/>
+            <output expression="&quot;Vendedor: &quot; &amp; nome" newline="True"/>
+            <output expression="&quot;Valor das Vendas: R$ &quot; &amp; vendas" newline="True"/>
+            <output expression="&quot;Valor da Comiss&#227;o: R$ &quot; &amp; comissao" newline="True"/>
+            <output expression="&quot;Valor do Sal&#225;rio: R$ &quot; &amp; salario" newline="True"/>
+            <output expression="&quot;Pagamento: R$ &quot; &amp; pagamentoTotal" newline="True"/>
         </body>
     </function>
 </flowgorithm>
