@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.18">
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nome" type="String" array="False"/>
+            <declare name="salario,vendas,percentualComissao,comissao,pagamentoTotal" type="Real" array="False"/>
+            <output expression="&quot;===== RELATÓRIO DE PAGAMENTO =====&quot;" newline="True"/>
+            <input variable="nome" prompt="Digite o nome do vendedor:"/>
+            <input variable="salario" prompt="Digite o valor do salário (R$):"/>
+            <input variable="vendas" prompt="Digite o valor total das vendas (R$):"/>
+            <if expression="vendas &gt; 3000">
+                <then>
+                    <assign variable="percentualComissao" expression="15"/>
+                </then>
+                <elseif expression="vendas &gt;= 1500">
+                    <then>
+                        <assign variable="percentualComissao" expression="10"/>
+                    </then>
+                </elseif>
+                <else>
+                    <assign variable="percentualComissao" expression="5"/>
+                </else>
+            </if>
+            <assign variable="comissao" expression="vendas * (percentualComissao / 100)"/>
+            <assign variable="pagamentoTotal" expression="salario + comissao"/>
+            <output expression="&quot;Nome do vendedor: &quot; + nome" newline="True"/>
+            <output expression="&quot;Valor das vendas: R$ &quot; + vendas" newline="True"/>
+            <output expression="&quot;Percentual da comissão: &quot; + percentualComissao + &quot;%&quot;" newline="True"/>
+            <output expression="&quot;Valor da comissão: R$ &quot; + comissao" newline="True"/>
+            <output expression="&quot;Salário base: R$ &quot; + salario" newline="True"/>
+            <output expression="&quot;Pagamento total: R$ &quot; + pagamentoTotal" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
